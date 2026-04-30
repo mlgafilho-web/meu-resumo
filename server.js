@@ -6,6 +6,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.json({ status: "Daily Briefing API funcionando!" });
+});
+
 app.post("/briefing", async (req, res) => {
   try {
     const response = await fetch("https://api.anthropic.com/v1/messages", {
